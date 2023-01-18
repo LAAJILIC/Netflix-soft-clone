@@ -1,0 +1,64 @@
+.profile-page {
+    height: 130vh;
+    color: white;
+}
+.profile-component {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 8%;
+    max-width: 800px;
+}
+.profile-component > h1 {
+font-size: 30px;
+font-weight: 400;
+border-bottom: 1px solid grey;
+margin-bottom: 20px;
+}
+.profile-data {
+    display: flex;
+}
+.profile-data > img {
+    height: 100px;
+}
+.profile-details {
+    color: white;
+    margin-left: 25px;
+    flex:1;;
+}
+.profile-details > h2 {
+    background-color: gray;
+    color: black;
+    padding: 5px;
+    font-size: 15px;
+    padding-left: 20px;
+}
+.user-plans > h2 {
+    border-bottom: 1px solid darkblue;
+    padding-bottom: 5px;
+    color: rgb(49, 49, 80);
+}
+.profile-button{
+    padding: 10px 20px;
+    font-size: 1rem;
+    margin-top: 5%;
+    width: 100%;
+    color: white;
+    background-color: rgb(215, 77, 77);
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+}
+.plan-detail {
+    background-color: rgb(188, 186, 186);
+    padding: 10px;
+    font-size: 12px;
+    padding-left: 10px;
+    color: rgb(49, 49, 80);
+    
+}
+.button-plan{
+    margin-left: 70%;
+}

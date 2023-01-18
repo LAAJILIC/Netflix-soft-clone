@@ -1,0 +1,36 @@
+
+.row {
+    margin-left: 10px;
+  max-height: 200px;
+}
+.row-title{
+    color: antiquewhite;
+    padding: 10px; 
+
+}
+
+.row-collection {
+display: flex;
+overflow-y: hidden;
+overflow-x: scroll;
+}
+.row-collection::-webkit-scrollbar {
+    display: none;
+}
+.row-image {
+    max-height: 80px;
+    object-fit: contain;
+    margin-right: 10px;
+    width: 100%;
+}
+.row-image:hover {
+    transform: scale(1.08);
+    opacity: 1;
+}
+.row-largeimage {
+max-height: 150px;
+}
+.row-largeimage:hover {
+    transform: scale(1.09);
+    opacity: 1;
+}

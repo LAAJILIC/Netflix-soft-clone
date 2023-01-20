@@ -16,6 +16,7 @@ font-size: 30px;
 font-weight: 400;
 border-bottom: 1px solid grey;
 margin-bottom: 20px;
+color: grey;
 }
 .profile-data {
     display: flex;
@@ -28,12 +29,17 @@ margin-bottom: 20px;
     margin-left: 25px;
     flex:1;;
 }
-.profile-details > h2 {
-    background-color: gray;
+.profile-details > h3 {
+    background: linear-gradient(
+        90deg,
+        rgb(235, 110, 110) 0%,
+        rgb(234, 199, 166) 100%
+      );
     color: black;
     padding: 5px;
-    font-size: 15px;
+    font-size: 10px;
     padding-left: 20px;
+    border-radius: 2px;
 }
 .user-plans > h2 {
     border-bottom: 1px solid darkblue;
@@ -43,7 +49,7 @@ margin-bottom: 20px;
 .profile-button{
     padding: 10px 20px;
     font-size: 1rem;
-    margin-top: 5%;
+    margin-top: 3%;
     width: 100%;
     color: white;
     background-color: rgb(215, 77, 77);
@@ -59,6 +65,14 @@ margin-bottom: 20px;
     color: rgb(49, 49, 80);
     
 }
-.button-plan{
-    margin-left: 70%;
+.plan-detail > h4 {
+    font-size: small;
+    color: brown;
+    text-decoration-style:wavy;
+
+}
+.check-icon {
+ margin-left: 300px;
+ padding-left: 120px;
+ 
 }

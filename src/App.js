@@ -6,6 +6,7 @@ import './App.css';
 import HomePage from './pages/HomePage/HomePage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
+import PaymentPage from './pages/PaymentPage/PaymentPage';
 import { login, logout, selectUser } from './features/user/userSlice';
 
 
@@ -34,6 +35,7 @@ function App() {
       (<Routes>
        <Route exact path="/" element={<HomePage />}></Route>
        <Route path="/profile" element={<ProfilePage />}></Route>
+       <Route path="/payment" element={<PaymentPage />}></Route>
        </Routes>
        )}
     </Router>

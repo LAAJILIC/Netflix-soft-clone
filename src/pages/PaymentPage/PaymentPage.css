@@ -1,0 +1,20 @@
+.payment-page {
+    height: 130vh;
+    color: rgb(16, 3, 3);
+    background-color: rgb(251, 251, 246);
+}
+.payment-message{
+    flex: 1;
+    width: 50%;
+    margin-left: 400px;
+    padding-left: 20px;
+    padding-top: 15%;
+    max-width: 400px;
+    font-size: small;
+}
+.netf-image {
+   flex:1;
+   max-width: 100px;
+ padding-left: 100px;
+ border-radius: 10px;
+}

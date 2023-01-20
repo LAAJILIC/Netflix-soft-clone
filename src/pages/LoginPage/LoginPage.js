@@ -26,12 +26,9 @@ function LoginPage() {
                    <input type='email' placeholder='Enter your email address' />
                    <button onClick={() => setSignIn(true)}>Start</button>
                 </form>
-             </div>
-            </>
+             </div> </>
             )}
         </div>
     </div>
-  )
-}
-
+  )}
 export default LoginPage;

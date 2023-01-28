@@ -17,3 +17,55 @@
     background-color: rgb(241, 139, 139);
     border-color: rgb(242, 103, 103);
 }
+.current-plan {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 8%;
+    background-color: rgb(188, 186, 186);
+    margin-top: 5px;
+    padding: 10px;
+    font-size: 12px;
+    padding-left: 10px;
+    color: rgb(49, 49, 80);
+}
+.extend-button{
+    margin-left: 500px;
+    width: 130px;
+    height: 4vh;
+    background-color: rgb(164, 169, 166);
+    border-color:  rgb(2, 72, 45);
+    font-size: 13px;
+    color: rgb(2, 72, 45);
+}
+.cancel-button{
+    margin-left: 500px;
+    width: 130px;
+    height: 4vh;
+    background-color: rgb(164, 169, 166);
+    border-color: rgb(243, 98, 65);
+    font-size: 13px;
+    color: rgb(243, 98, 65);
+}
+.upgrade{
+    flex-direction: row;
+    align-items:flex-end;
+    justify-content: center;
+    margin-left: 370px;
+
+
+}
+.upgrade-button{
+  flex: 1;
+  width: 130px;
+  height: 4vh;
+  
+  background-color: rgb(164, 169, 166);
+  border-color: rgb(70, 62, 121);
+  font-size: 13px;
+  color: rgb(70, 62, 121);
+}
+.plan{
+    margin-left: 500px;
+}

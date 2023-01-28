@@ -10,9 +10,9 @@ function PaymentPage() {
     <div className='payment-message'>
     <img className='netf-image'
     src="https://www.happyballoon.de/media/image/8b/b2/81/folienballon-_done_-emoji-46-cm_02-47485-S_1.jpg" alt=""/>
-    <h2>Thank you for your order <br />
-    The payment is succesfully done <br />
-     Enjoy your netflix TIME</h2>
+    <h2>Your Subscription to Netflix clone is canceled<br />
+    You can renew your subscription anytime <br />
+     Movies are fun with Netflix</h2>
     </div>
    
     </div>

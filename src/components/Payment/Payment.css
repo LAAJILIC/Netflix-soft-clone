@@ -30,6 +30,10 @@
     padding-left: 10px;
     color: rgb(49, 49, 80);
 }
+.upper {
+    color:rgb(202, 79, 79);
+    font-size: 14px;
+}
 .extend-button{
     margin-left: 500px;
     width: 130px;

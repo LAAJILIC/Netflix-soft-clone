@@ -13,9 +13,7 @@ function Payment({ type, price, email, paymentHandler, exist }) {
   
   const plans = ['Basic Plan', 'Standard Plan', 'Premium Plan'];
   const filteredplans = plans.filter(plan => plan !== type);
-  console.log(filteredplans);
-  // const planPrices = [7.99, 12.99, 14.99]; 
-  // planPrices = planPrices.filter(planprice => planprice !== price); console.log(planPrices);
+ 
  const user = useSelector(selectUser);
   const [paid, setPaid] = useState(false);
 const [datePurchase, setDatePurchase] = useState('');
@@ -30,63 +28,49 @@ const navigate = useNavigate();
       plan: ''
     });
 const [newPlan, setNewPlan] =useState('');
-    // const query = await db.collection('users').where('userId', '==', email).get();
-    // if (!query.empty) {
-    //   const snapshot = query.docs[0];
-    //   const data = snapshot.data();
-    //   console.log(data.extendedPlan);
-    //   newPlan = data.extendedPlan;
-    //   console.log(newPlan);
-    //  }
     useEffect(() => {
       async function getPlanByEmail(email) {
         let plan = '';
         // Make the initial query
         const query = await db.collection('users').where('userId', '==', email).get();
-      //console.log(query);
          if (!query.empty) {
           const snapshot = query.docs[0];
           const data = snapshot.data();
           console.log(data);
           plan = data.plan;
-          console.log(data.datePurchase);
+          setDatePurchase(data.datePurchase);
+          setDateExtension(data.dateExtension);
            setNewPlan(data.extendedPlan);
-           console.log(newPlan); 
            setDatePurchase(data.datePurchase);
-      console.log(data.extendedPlan);
-        }    console.log(plan);
+        }
         return plan;
       }getPlanByEmail(user.email);
       console.log(user.uid);
    
-    }, [upgrade]);
+    }, []);
+    useEffect(() => {setNewPlan('')},[cancel])
 ///////////////////////////////////////////////////////////
     const handlePayment = ({ email, type}) => {
       setPaid(true);
-      setDatePurchase(`${new Date().getDate()}/${new Date().getMonth()+1}/${new Date().getFullYear()}`);
-      console.log(datePurchase);
-       //setDateExtension((datePurchase.prototype.getDate())-1/(datePurchase.prototype.getFullYear())+1);
-         
-      // Add a new document in collection "users"
-      //addDoc(collection(db, "users", user.uid), {
+       //addDoc(collection(db, "users", user.uid), {
         var userDoc = db.collection("users").doc(`user${email}`);
         userDoc.set({
         userId: email,
         plan: type,
         datePurchase: `${new Date().getDate()}/${new Date().getMonth()+1}/${new Date().getFullYear()}`, 
-        extendedPlan: " "
+        dateExtension: `${(new Date().getDate()-1)}/${new Date().getMonth()+1}/${(new Date().getFullYear())+1}`, 
+        extendedPlan: ""
       });  alert('Payment received');
     };
-////////////////////////////77
+//////////////////////////////////////////////////////////////
     async function handleUpgrade(email) {
       setUpgtade({done: true, planorder: upgrade.planorder, plan: upgrade.plan});
-  
+  setNewPlan(upgrade.plan);
       // var userDoc = db.collection("users").doc(`user${email}`);
-      // console.log(plan);
       // userDoc.update({
       //   "datePurchase": '15/03/2023', 
       //   "extendedPlan": plan
-      //  });  alert('Plan Upgrated');};
+      //  });  alert('Plan Upgrated');}; does not work!!
       const querySnapshot = await db.collection('users').where('userId', '==', email).get();
       querySnapshot.forEach((doc) => {
         doc.ref.update({
@@ -95,7 +79,7 @@ const [newPlan, setNewPlan] =useState('');
       });
   
      };
-     /////////////////////////////////
+     ///////////////////////////////////////////////////////////
    async function handleCancellation(email) {
     setCancel(true);
     navigate('/cancellation');
@@ -108,13 +92,12 @@ const [newPlan, setNewPlan] =useState('');
   if(paid.text || exist) 
 {    return (
       <div className='current-plan'>
-      {
-        (newPlan !== '')  ? (<div>Your plan is upgrated to {upgrade.plan}</div>) : (<div>Your plan is {type}</div>
-        )
+      {// if newPlan exists in plans[ or filteredPlams[] !!!!!!!!!!
+        (plans.indexOf(newPlan) === -1) ? (<span>Your plan is <span className='upper'>{type}</span></span>) : (<div>Your plan is upgrated to <span className='upper'>{newPlan}</span></div>)
       }
-      <div>This plan is available from {datePurchase}</div>
+      <div>This plan is available from <span className='upper'>{datePurchase}</span></div>
       <div className='extend'>
-      <div>You can extend your abo from {dateExtension}</div>
+      <div>You can extend your abo from <span className='upper'>{dateExtension}</span></div>
       <button className='extend-button' onClick={() => setExtend(true)}>Extend</button>
       {
         extend ? (<div> <div className='final-plan'>So, your plan will be extended for 1 year starting from today</div>

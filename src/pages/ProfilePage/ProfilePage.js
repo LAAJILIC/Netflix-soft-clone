@@ -23,7 +23,6 @@ function ProfilePage() {
 const plans = ['Basic Plan', 'Standard Plan', 'Premium Plan'];
   const planPrices = [7.99, 12.99, 14.99];
   const user = useSelector(selectUser);
-  //console.log(user.plan);
   const stripe=useStripe();
   const elements= useElements();
   const [selectedPlan, setSelectedPlan] = useState({
@@ -42,13 +41,12 @@ const plans = ['Basic Plan', 'Standard Plan', 'Premium Plan'];
       let plan = '';
       // Make the initial query
       const query = await db.collection('users').where('userId', '==', email).get();
-    //console.log(query);
        if (!query.empty) {
         const snapshot = query.docs[0];
         const data = snapshot.data();
         console.log(data.plan);
         plan = data.plan;
-      }    console.log(plan);
+      }
       setchoosenPlan(plan);
       return plan;
     }
@@ -59,8 +57,6 @@ const plans = ['Basic Plan', 'Standard Plan', 'Premium Plan'];
            plan: getPlanByEmail(user.email)
 
                       })); 
-                      console.log(user.email);
-                      console.log(user.plan); //???
   }, []);
 //the following function aims to process the stripe payment
   const paymentHandler = (e) => {
@@ -101,7 +97,6 @@ const plans = ['Basic Plan', 'Standard Plan', 'Premium Plan'];
       choosen: true,
       checkNb: 10
       }); 
-      console.log(selectedPlan.ref)
           //when logout payment will be false so the data will get lost!! not found for the remaining subscription when log in again
     
     }
@@ -122,7 +117,8 @@ const plans = ['Basic Plan', 'Standard Plan', 'Premium Plan'];
 
       </div>) : 
              ((!selectedPlan.choosen && selectedPlan.checkNb === 0 || !user.plan) ? (
-                <div className='intro intro-step1'>You do not have a plan yet ? choose your preferred one just Below</div>
+              <div className='intro intro-step1'>
+                <h3>You do not have a plan yet ? choose your favorite one NOW</h3></div>
               ) : (
                   (!payment)
                   ?
